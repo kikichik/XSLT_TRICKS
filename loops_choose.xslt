@@ -47,8 +47,8 @@
 
 
 
-match="*:Талон_амбулаторного_пациента/*:Пациент/*:data/*:Демографические_данные__openBrkt_личные_closeBrkt_/*:Адрес/*:Адрес/*:Структурированный_адрес/*:Местность/*:value/*:value" >
-<xsl:variable name="template013_VarName"   select ="*:Талон_амбулаторного_пациента/*:Пациент/*:data/*:Демографические_данные__openBrkt_личные_closeBrkt_/*:Адрес/*:Адрес/*:Структурированный_адрес/*:Местность/*:value/*:value" />
+<xsl:template match="<path>" >
+<xsl:variable name="template013_VarName"   select ="." />
 <xsl:choose>
 	<xsl:when test="$template013_VarName=''" >
 		<!-- 0 start -->
