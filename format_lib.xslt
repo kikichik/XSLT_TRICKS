@@ -26,6 +26,25 @@ select="xs:dateTime(concat('2001-01-01T', format-number($hours, '00'), ':', form
 select="format-dateTime($dateTime, '[H00]:[m00]:[s00]')"/></xsl:matching-substring></xsl:analyze-string></xsl:template
 >
 
+<!-- Day of Date -->
+<xsl:template name="day-of-date">  
+	<xsl:param name="dateString"/>
+	<xsl:value-of select="substring($dateString,9,2)" />
+</xsl:template>
+
+<!-- Month of Date -->
+<xsl:template name="month-of-date">  
+	<xsl:param name="dateString"/>
+	<xsl:value-of select="substring($dateString,6,2)" />
+</xsl:template>
+
+<!-- Year of Date -->
+<xsl:template name="year-of-date">  
+	<xsl:param name="dateString"/>
+	<xsl:value-of select="substring($dateString,1,4)" />
+</xsl:template>
+
+
 <!-- conditional style -->
 <xsl:element name="span">
   <xsl:attribute name="style">

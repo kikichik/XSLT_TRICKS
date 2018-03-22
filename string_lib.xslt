@@ -219,3 +219,152 @@ select="'&#09;&#10;&#13;  ,.&#160;:;'" />
 </xsl:choose></xsl:if
 ></xsl:template
 >
+
+<!-- Period format -->
+<xsl:template
+name  ="PeriodFormat"
+><xsl:param 
+name  ="pString"/><xsl:analyze-string 
+select="$pString" regex="([0-9]+)Y"
+><xsl:matching-substring><xsl:variable 
+name  ="v" 
+select="number(regex-group(1))"/><xsl:value-of 
+select="$v"/><span> </span><xsl:call-template
+ 
+name  ="f_plural_form"
+><xsl:with-param 
+name  ="num" 
+select="$v"/><xsl:with-param 
+name  ="str1"
+>год</xsl:with-param><xsl:with-param 
+name  ="str2"
+>года</xsl:with-param><xsl:with-param 
+name  ="str5"
+>лет</xsl:with-param></xsl:call-template
+></xsl:matching-substring></xsl:analyze-string><xsl:analyze-string 
+select="$pString" regex="([0-9]+)M"
+><xsl:matching-substring><xsl:variable 
+name  ="v" 
+select="number(regex-group(1))"/><span> </span><xsl:value-of 
+select="$v"/><span> </span><xsl:call-template
+ 
+name  ="f_plural_form"
+><xsl:with-param 
+name  ="num" 
+select="$v"/><xsl:with-param 
+name  ="str1"
+>месяц</xsl:with-param><xsl:with-param 
+name  ="str2"
+>месяца</xsl:with-param><xsl:with-param 
+name  ="str5"
+>месяцев</xsl:with-param></xsl:call-template
+></xsl:matching-substring></xsl:analyze-string><xsl:analyze-string 
+select="$pString" regex="([0-9]+)W"
+><xsl:matching-substring><xsl:variable 
+name  ="v" 
+select="number(regex-group(1))"/><span> </span><xsl:value-of 
+select="$v"/><span> </span><xsl:call-template
+ 
+name  ="f_plural_form"
+><xsl:with-param 
+name  ="num" 
+select="$v"/><xsl:with-param 
+name  ="str1"
+>неделя</xsl:with-param><xsl:with-param 
+name  ="str2"
+>недели</xsl:with-param><xsl:with-param 
+name  ="str5"
+>недель</xsl:with-param></xsl:call-template
+></xsl:matching-substring></xsl:analyze-string><xsl:analyze-string 
+select="$pString" regex="([0-9]+)D"
+><xsl:matching-substring><xsl:variable 
+name  ="v" 
+select="number(regex-group(1))"/><span> </span><xsl:value-of 
+select="$v"/><span> </span><xsl:call-template
+ 
+name  ="f_plural_form"
+><xsl:with-param 
+name  ="num" 
+select="$v"/><xsl:with-param 
+name  ="str1"
+>день</xsl:with-param><xsl:with-param 
+name  ="str2"
+>дня</xsl:with-param><xsl:with-param 
+name  ="str5"
+>дней</xsl:with-param></xsl:call-template
+></xsl:matching-substring></xsl:analyze-string></xsl:template
+>
+ <xsl:template
+ 
+name  ="PeriodFormatIN"
+><xsl:param 
+name  ="pString"/><xsl:analyze-string 
+select="$pString" regex="([0-9]+)Y"
+><xsl:matching-substring><xsl:variable 
+name  ="v" 
+select="number(regex-group(1))"/><xsl:value-of 
+select="$v"/><span> </span><xsl:call-template
+ 
+name  ="f_plural_form"
+><xsl:with-param 
+name  ="num" 
+select="$v"/><xsl:with-param 
+name  ="str1"
+>года</xsl:with-param><xsl:with-param 
+name  ="str2"
+>лет</xsl:with-param><xsl:with-param 
+name  ="str5"
+>лет</xsl:with-param></xsl:call-template
+></xsl:matching-substring></xsl:analyze-string><xsl:analyze-string 
+select="$pString" regex="([0-9]+)M"
+><xsl:matching-substring><xsl:variable 
+name  ="v" 
+select="number(regex-group(1))"/><span> </span><xsl:value-of 
+select="$v"/><span> </span><xsl:call-template
+ 
+name  ="f_plural_form"
+><xsl:with-param 
+name  ="num" 
+select="$v"/><xsl:with-param 
+name  ="str1"
+>месяца</xsl:with-param><xsl:with-param 
+name  ="str2"
+>месяцев</xsl:with-param><xsl:with-param 
+name  ="str5"
+>месяцев</xsl:with-param></xsl:call-template
+></xsl:matching-substring></xsl:analyze-string><xsl:analyze-string 
+select="$pString" regex="([0-9]+)W"
+><xsl:matching-substring><xsl:variable 
+name  ="v" 
+select="number(regex-group(1))"/><span> </span><xsl:value-of 
+select="$v"/><span> </span><xsl:call-template
+
+name  ="f_plural_form"
+><xsl:with-param 
+name  ="num" 
+select="$v"/><xsl:with-param 
+name  ="str1"
+>недели</xsl:with-param><xsl:with-param 
+name  ="str2"
+>недель</xsl:with-param><xsl:with-param 
+name  ="str5"
+>недель</xsl:with-param></xsl:call-template
+></xsl:matching-substring></xsl:analyze-string><xsl:analyze-string 
+select="$pString" regex="([0-9]+)D"
+><xsl:matching-substring><xsl:variable 
+name  ="v" 
+select="number(regex-group(1))"/><span> </span><xsl:value-of 
+select="$v"/><span> </span><xsl:call-template
+ 
+name  ="f_plural_form"
+><xsl:with-param 
+name  ="num" 
+select="$v"/><xsl:with-param 
+name  ="str1"
+>дня</xsl:with-param><xsl:with-param 
+name  ="str2"
+>дней</xsl:with-param><xsl:with-param 
+name  ="str5"
+>дней</xsl:with-param></xsl:call-template
+></xsl:matching-substring></xsl:analyze-string></xsl:template
+>
