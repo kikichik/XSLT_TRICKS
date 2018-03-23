@@ -34,7 +34,30 @@ select="$str5" disable-output-escaping="yes"/></xsl:otherwise></xsl:choose></xsl
 <xsl:variable 
 name  ="whitespace" 
 select="'&#09;&#10;&#13;  ,.&#160;:;'" />
- 
+
+
+
+ <!-- default Post Process -->
+ <xsl:template name="PostProcess">
+ <xsl:param   name  ="string" />
+ <xsl:param   name  ="size" select="0" />
+ 	<xsl:variable name="processedString">
+	   <xsl:call-template name="string-split" >
+	    <xsl:with-param  name  ="string" select="$string" />
+	   </xsl:call-template>
+ 	</xsl:variable>
+ 	<xsl:if test="$size=0">
+ 		<xsl:value-of  select="$processedString"/>
+ 	</xsl:if>
+ 	<xsl:if test="$size > 0">
+ 		<xsl:if test="string-length($processedString) &lt; $size">
+ 			<xsl:value-of  select="substring($processedString,1,$size)"/>
+ 		</xsl:if>
+ 		<xsl:if test="string-length($processedString) >= $size">
+ 			<xsl:value-of  select="$processedString"/>
+ 		</xsl:if>
+ 	</xsl:if>
+ </xsl:template> 
  
 <!--  Split long strings --> 
 <xsl:template name="string-split">
