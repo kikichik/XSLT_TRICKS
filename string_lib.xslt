@@ -163,12 +163,66 @@ select="'&#09;&#10;&#13;  ,.&#160;:;'" />
      <xsl:value-of select="."/>
     </xsl:when>
     <xsl:otherwise>
-     <xsl:call-template name="string-crunch" >
+     <xsl:call-template name="string-split7" >
       <xsl:with-param  name="string" select="." />
      </xsl:call-template>
     </xsl:otherwise>
    </xsl:choose>
    <xsl:if test="position()!=last()"><xsl:text>: </xsl:text></xsl:if>
+  </xsl:for-each>
+ </xsl:template>
+ 
+<xsl:template name="string-split7">
+  <xsl:param 
+   name  ="string" />
+  <xsl:for-each select="tokenize($string, ';')">
+   <xsl:choose>
+    <xsl:when test="string-length(.) &lt; 50">
+     <xsl:value-of select="."/>
+    </xsl:when>
+    <xsl:otherwise>
+     <xsl:call-template name="string-split8" >
+      <xsl:with-param  name="string" select="." />
+     </xsl:call-template>
+    </xsl:otherwise>
+   </xsl:choose>
+   <xsl:if test="position()!=last()"><xsl:text>; </xsl:text></xsl:if>
+  </xsl:for-each>
+ </xsl:template>
+
+<xsl:template name="string-split8">
+  <xsl:param 
+   name  ="string" />
+  <xsl:for-each select="tokenize($string, '+')">
+   <xsl:choose>
+    <xsl:when test="string-length(.) &lt; 50">
+     <xsl:value-of select="."/>
+    </xsl:when>
+    <xsl:otherwise>
+     <xsl:call-template name="string-split9" >
+      <xsl:with-param  name="string" select="." />
+     </xsl:call-template>
+    </xsl:otherwise>
+   </xsl:choose>
+   <xsl:if test="position()!=last()"><xsl:text>+ </xsl:text></xsl:if>
+  </xsl:for-each>
+ </xsl:template>
+
+ <xsl:template name="string-split9">
+  <xsl:param 
+   name  ="string" />
+  <xsl:for-each select="tokenize($string, ')')">
+   <xsl:choose>
+    <xsl:when test="string-length(.) &lt; 50">
+     <xsl:value-of select="."/>
+    </xsl:when>
+    <xsl:otherwise>
+     <xsl:call-template name="string-crunch" >
+      <xsl:with-param  name="string" select="." />
+     </xsl:call-template>
+    </xsl:otherwise>
+   </xsl:choose>
+   <xsl:if test="position()!=last()"><xsl:text>) </xsl:text></xsl:if>
   </xsl:for-each>
  </xsl:template>
 
