@@ -34,32 +34,10 @@ select="$str5" disable-output-escaping="yes"/></xsl:otherwise></xsl:choose></xsl
 <xsl:variable 
 name  ="whitespace" 
 select="'&#09;&#10;&#13;  ,.&#160;:;'" />
-
-
-
- <!-- default Post Process -->
- <xsl:template name="PostProcess">
- <xsl:param   name  ="string" />
- <xsl:param   name  ="size" select="0" />
- 	<xsl:variable name="processedString">
-	   <xsl:call-template name="string-split" >
-	    <xsl:with-param  name  ="string" select="$string" />
-	   </xsl:call-template>
- 	</xsl:variable>
- 	<xsl:if test="$size=0">
- 		<xsl:value-of  select="$processedString"/>
- 	</xsl:if>
- 	<xsl:if test="$size > 0">
- 		<xsl:if test="string-length($processedString) &lt; $size">
- 			<xsl:value-of  select="substring($processedString,1,$size)"/>
- 		</xsl:if>
- 		<xsl:if test="string-length($processedString) >= $size">
- 			<xsl:value-of  select="$processedString"/>
- 		</xsl:if>
- 	</xsl:if>
- </xsl:template> 
  
-<!--  Split long strings --> 
+<xsl:variable  name  ="max_str_size"  select="50" />
+<xsl:variable  name  ="split_str_size"  select="30" />
+ 
 <xsl:template name="string-split">
  <xsl:param 
   name  ="string" />
@@ -85,7 +63,7 @@ select="'&#09;&#10;&#13;  ,.&#160;:;'" />
   <xsl:for-each select="tokenize($string, ' ')">
    <xsl:choose>
     
-    <xsl:when test="string-length(.) &lt; 50">
+    <xsl:when test="string-length(.) &lt; $max_str_size">
      <xsl:value-of select="."/>
     </xsl:when>
     <xsl:otherwise>
@@ -104,7 +82,7 @@ select="'&#09;&#10;&#13;  ,.&#160;:;'" />
    name  ="string" />
   <xsl:for-each select="tokenize($string, '-')">
    <xsl:choose>
-    <xsl:when test="string-length(.) &lt; 50">
+    <xsl:when test="string-length(.) &lt; $max_str_size">
      <xsl:value-of select="."/>
     </xsl:when>
     <xsl:otherwise>
@@ -122,7 +100,7 @@ select="'&#09;&#10;&#13;  ,.&#160;:;'" />
    name  ="string" />
   <xsl:for-each select="tokenize($string, '\.')">
    <xsl:choose>
-    <xsl:when test="string-length(.) &lt; 50">
+    <xsl:when test="string-length(.) &lt; $max_str_size">
      <xsl:value-of select="."/>
     </xsl:when>
     <xsl:otherwise>
@@ -141,7 +119,7 @@ select="'&#09;&#10;&#13;  ,.&#160;:;'" />
    name  ="string" />
   <xsl:for-each select="tokenize($string, ',')">
    <xsl:choose>
-    <xsl:when test="string-length(.) &lt; 50">
+    <xsl:when test="string-length(.) &lt; $max_str_size">
      <xsl:value-of select="."/>
     </xsl:when>
     <xsl:otherwise>
@@ -159,7 +137,7 @@ select="'&#09;&#10;&#13;  ,.&#160;:;'" />
    name  ="string" />
   <xsl:for-each select="tokenize($string, ':')">
    <xsl:choose>
-    <xsl:when test="string-length(.) &lt; 50">
+    <xsl:when test="string-length(.) &lt; $max_str_size">
      <xsl:value-of select="."/>
     </xsl:when>
     <xsl:otherwise>
@@ -172,12 +150,12 @@ select="'&#09;&#10;&#13;  ,.&#160;:;'" />
   </xsl:for-each>
  </xsl:template>
  
-<xsl:template name="string-split7">
+ <xsl:template name="string-split7">
   <xsl:param 
    name  ="string" />
   <xsl:for-each select="tokenize($string, ';')">
    <xsl:choose>
-    <xsl:when test="string-length(.) &lt; 50">
+    <xsl:when test="string-length(.) &lt; $max_str_size">
      <xsl:value-of select="."/>
     </xsl:when>
     <xsl:otherwise>
@@ -189,13 +167,13 @@ select="'&#09;&#10;&#13;  ,.&#160;:;'" />
    <xsl:if test="position()!=last()"><xsl:text>; </xsl:text></xsl:if>
   </xsl:for-each>
  </xsl:template>
-
-<xsl:template name="string-split8">
+ 
+ <xsl:template name="string-split8">
   <xsl:param 
    name  ="string" />
-  <xsl:for-each select="tokenize($string, '+')">
+  <xsl:for-each select="tokenize($string, '\+')">
    <xsl:choose>
-    <xsl:when test="string-length(.) &lt; 50">
+    <xsl:when test="string-length(.) &lt; $max_str_size">
      <xsl:value-of select="."/>
     </xsl:when>
     <xsl:otherwise>
@@ -207,13 +185,13 @@ select="'&#09;&#10;&#13;  ,.&#160;:;'" />
    <xsl:if test="position()!=last()"><xsl:text>+ </xsl:text></xsl:if>
   </xsl:for-each>
  </xsl:template>
-
+ 
  <xsl:template name="string-split9">
   <xsl:param 
    name  ="string" />
   <xsl:for-each select="tokenize($string, ')')">
    <xsl:choose>
-    <xsl:when test="string-length(.) &lt; 50">
+    <xsl:when test="string-length(.) &lt; $max_str_size">
      <xsl:value-of select="."/>
     </xsl:when>
     <xsl:otherwise>
@@ -238,7 +216,7 @@ select="'&#09;&#10;&#13;  ,.&#160;:;'" />
   </xsl:variable>
   
   <xsl:for-each select="$results/*">
-   <xsl:if test="(position() mod 30)=0">
+   <xsl:if test="(position() mod $split_str_size)=0">
    <xsl:text> </xsl:text>
    </xsl:if> 
    <xsl:value-of select="."/>
