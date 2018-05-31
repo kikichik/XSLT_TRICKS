@@ -212,7 +212,7 @@ select="'&#09;&#10;&#13;  ,.&#160;:;'" />
  <xsl:template name="string-split9">
   <xsl:param 
    name  ="string" />
-  <xsl:for-each select="tokenize($string, ')')">
+  <xsl:for-each select="tokenize($string, '\)')">
    <xsl:choose>
     <xsl:when test="string-length(.) &lt; $max_str_size">
      <xsl:value-of select="."/>
