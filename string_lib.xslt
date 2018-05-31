@@ -44,14 +44,14 @@ name  ="lastT"
 select="$num mod 100"/><xsl:choose><xsl:when 
 test  ="$lastT>=10 and 20>=$lastT"
 ><xsl:value-of 
-select="$str5" disable-output-escaping="yes"/></xsl:when><xsl:when 
+select="$str5" disable-output-escaping="no"/></xsl:when><xsl:when 
 test  ="$lastN=1"
 ><xsl:value-of 
-select="$str1" disable-output-escaping="yes"/></xsl:when><xsl:when 
+select="$str1" disable-output-escaping="no"/></xsl:when><xsl:when 
 test  ="$lastN=2 or $lastN=3 or $lastN=4"
 ><xsl:value-of 
-select="$str2" disable-output-escaping="yes"/></xsl:when><xsl:otherwise><xsl:value-of 
-select="$str5" disable-output-escaping="yes"/></xsl:otherwise></xsl:choose></xsl:template
+select="$str2" disable-output-escaping="no"/></xsl:when><xsl:otherwise><xsl:value-of 
+select="$str5" disable-output-escaping="no"/></xsl:otherwise></xsl:choose></xsl:template
 >
  
 <xsl:variable 
