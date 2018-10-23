@@ -58,7 +58,7 @@
   <xsl:value-of select="format-date($date, '[D01].[M01].[Y]')"/><xsl:variable name="TimeVar"><xsl:call-template name="TimeFormat"
    ><xsl:with-param name="timeString"
     select="$dateString"
-   /></xsl:call-template></xsl:variable><xsl:if test="$TimeVar != '00:00:00'"
+   /></xsl:call-template></xsl:variable><xsl:if test="$TimeVar != '00:00:00' and $TimeVar != '' "
     ><span> </span><xsl:value-of select="$TimeVar"
     /></xsl:if></xsl:template>
 
