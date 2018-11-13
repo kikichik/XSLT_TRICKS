@@ -301,6 +301,7 @@
     <xsl:analyze-string select="$DateString" regex="([0-9]+)M">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
+      <span> </span>
       <xsl:value-of select="$v"/>
       <span> </span>
       <xsl:call-template name="f_plural_form">
