@@ -78,7 +78,18 @@
  </xsl:template>
 
  
- 
+ <xsl:template name="showDecimal">
+  <xsl:param name="string"/>
+   <xsl:if test="string-length($string) &gt; 0">
+    <xsl:choose>
+     <xsl:when test="contains($string, '.')">
+      <xsl:value-of select="$string"/>      
+     </xsl:when>
+     <xsl:otherwise><xsl:value-of select="$string" /><xsl:text>.00</xsl:text>
+     </xsl:otherwise>
+    </xsl:choose>
+   </xsl:if>
+ </xsl:template>
  
  
  <xsl:template name="SinglePeriodFormatIN">
@@ -130,7 +141,7 @@
   <xsl:param name="pString"/>
   <xsl:param name="v"/>
   <xsl:if test="$pString='a'">
-   <xsl:value-of select="($v)"/>
+   <xsl:value-of select="$v"/>
     <span> </span><xsl:call-template name="f_plural_form">
     <xsl:with-param name="num" select="$v"/>
     <xsl:with-param name="str1">год</xsl:with-param>
@@ -138,8 +149,17 @@
     <xsl:with-param name="str5">лет</xsl:with-param>
    </xsl:call-template>
   </xsl:if>
+  <xsl:if test="$pString='1/a'">
+   <xsl:value-of select="$v"/>
+   <span> </span><xsl:call-template name="f_plural_form">
+    <xsl:with-param name="num" select="$v"/>
+    <xsl:with-param name="str1">раз в год</xsl:with-param>
+    <xsl:with-param name="str2">раза в год</xsl:with-param>
+    <xsl:with-param name="str5">раз в год</xsl:with-param>
+   </xsl:call-template>
+  </xsl:if>
   <xsl:if test="$pString='mo'">
-   <xsl:value-of select="($v)"/>
+   <xsl:value-of select="$v"/>
     <span> </span><xsl:call-template name="f_plural_form">
     <xsl:with-param name="num" select="$v"/>
     <xsl:with-param name="str1">месяц</xsl:with-param>
@@ -147,8 +167,17 @@
     <xsl:with-param name="str5">месяцев</xsl:with-param>
    </xsl:call-template>
   </xsl:if>
+  <xsl:if test="$pString='1/mo'">
+   <xsl:value-of select="$v"/>
+   <span> </span><xsl:call-template name="f_plural_form">
+    <xsl:with-param name="num" select="$v"/>
+    <xsl:with-param name="str1">раз в месяц</xsl:with-param>
+    <xsl:with-param name="str2">раза в месяц</xsl:with-param>
+    <xsl:with-param name="str5">раз месяц</xsl:with-param>
+   </xsl:call-template>
+  </xsl:if>
   <xsl:if test="$pString='wk'">
-   <xsl:value-of select="($v)"/>
+   <xsl:value-of select="$v"/>
     <span> </span><xsl:call-template name="f_plural_form">
     <xsl:with-param name="num" select="$v"/>
     <xsl:with-param name="str1">неделя</xsl:with-param>
@@ -156,14 +185,33 @@
     <xsl:with-param name="str5">недель</xsl:with-param>
    </xsl:call-template>
   </xsl:if>
+  <xsl:if test="$pString='1/wk'">
+   <xsl:value-of select="$v"/>
+   <span> </span><xsl:call-template name="f_plural_form">
+    <xsl:with-param name="num" select="$v"/>
+    <xsl:with-param name="str1">раз в неделю</xsl:with-param>
+    <xsl:with-param name="str2">раза в неделю</xsl:with-param>
+    <xsl:with-param name="str5">раз в неделю</xsl:with-param>
+   </xsl:call-template>
+  </xsl:if>
   <xsl:if test="$pString='d'">
-   <xsl:value-of select="($v)"/>
+   <xsl:value-of select="$v"/>
    <span> </span>
    <xsl:call-template name="f_plural_form">
     <xsl:with-param name="num" select="$v"/>
     <xsl:with-param name="str1">день</xsl:with-param>
     <xsl:with-param name="str2">дня</xsl:with-param>
     <xsl:with-param name="str5">дней</xsl:with-param>
+   </xsl:call-template>
+  </xsl:if> 
+  <xsl:if test="$pString='1/d'">
+   <xsl:value-of select="$v"/>
+   <span> </span>
+   <xsl:call-template name="f_plural_form">
+    <xsl:with-param name="num" select="$v"/>
+    <xsl:with-param name="str1">раз в день</xsl:with-param>
+    <xsl:with-param name="str2">раза в день</xsl:with-param>
+    <xsl:with-param name="str5">раз в день</xsl:with-param>
    </xsl:call-template>
   </xsl:if> 
  </xsl:template>
