@@ -1055,7 +1055,77 @@
   </xsl:for-each>
  </xsl:template>
 
-
-
-
- 
+<xsl:template name="edizm">
+  <xsl:param name="val"/>
+  <xsl:if test="$val != '1' "><xsl:text> </xsl:text></xsl:if>
+  <xsl:choose>
+   <xsl:when test="$val = 'Cel'">°С</xsl:when>
+   <xsl:when test="$val = 'week'">неделя</xsl:when>
+   <xsl:when test="$val = 'hour'">час</xsl:when>
+   <xsl:when test="$val = 'month'">месяц</xsl:when>
+   <xsl:when test="$val = 'year'">год</xsl:when>
+   <xsl:when test="$val = 'day'">день</xsl:when>
+   <xsl:when test="$val = 'second'">секунда</xsl:when>
+   <xsl:when test="$val = 'minute'">минута</xsl:when>
+   <xsl:when test="$val = 'Sv'">Зв</xsl:when>
+   <xsl:when test="$val = 'mg/l'">мг/л</xsl:when>
+   <xsl:when test="$val = '/yr'">/год</xsl:when>
+   <xsl:when test="$val = '10*12/l'">10*12/л</xsl:when>
+   <xsl:when test="$val = 'cm2'">см2</xsl:when>
+   <xsl:when test="$val = 'mm/h'">мм/ч</xsl:when>
+   <xsl:when test="$val = 'Minutes'">минуты</xsl:when>
+   <xsl:when test="$val = '/ml'">/мл</xsl:when>
+   <xsl:when test="$val = '/mo'">/месяц</xsl:when>
+   <xsl:when test="$val = 'mm3'">мм3</xsl:when>
+   <xsl:when test="$val = '/d'">/день</xsl:when>
+   <xsl:when test="$val = 'mg'">мг</xsl:when>
+   <xsl:when test="$val = '10*9/l'">10*9/л</xsl:when>
+   <xsl:when test="$val = 'ml'">мл</xsl:when>
+   <xsl:when test="$val = 'mm'">мм</xsl:when>
+   <xsl:when test="$val = 'mo'">мес</xsl:when>
+   <xsl:when test="$val = 'J/min'">Дж/мин</xsl:when>
+   <xsl:when test="$val = 'ft3'">фут3</xsl:when>
+   <xsl:when test="$val = 'mm[Hg]'">мм.рт.ст.</xsl:when>
+   <xsl:when test="$val = 'dioptre'">дптр</xsl:when>
+   <xsl:when test="$val = 'nanomol/d'">нмоль/день</xsl:when>
+   <xsl:when test="$val = 'in3'">дюйм3</xsl:when>
+   <xsl:when test="$val = 'mSv'">мЗв</xsl:when>
+   <xsl:when test="$val = 'Hz'">Гц</xsl:when>
+   <xsl:when test="$val = 'gm/l'">гм/л</xsl:when>
+   <xsl:when test="$val = 'U/l'">Е/л</xsl:when>
+   <xsl:when test="$val = 'U/ml'">Е/мл</xsl:when>
+   <xsl:when test="$val = '/wk'">/неделю</xsl:when>
+   <xsl:when test="$val = 'fl'">фл</xsl:when>
+   <xsl:when test="$val = 'IU/ml'">МЕ/мл</xsl:when>
+   <xsl:when test="$val = 'm/s'">м/с</xsl:when>
+   <xsl:when test="$val = 'µg'">мкг</xsl:when>
+   <xsl:when test="$val = 'min'">мин</xsl:when>
+   <xsl:when test="$val = 'wk'">недель</xsl:when>
+   <xsl:when test="$val = '/min'">/мин</xsl:when>
+   <xsl:when test="$val = 'U'">Е</xsl:when>
+   <xsl:when test="$val = 'millisec'">мс</xsl:when>
+   <xsl:when test="$val = 'nanogm/ml'">нг/мл</xsl:when>
+   <xsl:when test="$val = 'kg'">кг</xsl:when>
+   <xsl:when test="$val = 'dB'">дБ</xsl:when>
+   <xsl:when test="$val = 'cc'">см3</xsl:when>
+   <xsl:when test="$val = 'a'">лет</xsl:when>
+   <xsl:when test="$val = 'd'">дней</xsl:when>
+   <xsl:when test="$val = 'm2'">м2</xsl:when>
+   <xsl:when test="$val = 'gm'">г</xsl:when>
+   <xsl:when test="$val = 'h'">ч</xsl:when>
+   <xsl:when test="$val = 'cm'">см</xsl:when>
+   <xsl:when test="$val = 'kg/m2'">кг/м2</xsl:when>
+   <xsl:when test="$val = 'm'">м</xsl:when>
+   <xsl:when test="$val = 'mmol/l'">ммоль/л</xsl:when>
+   <xsl:when test="$val = 'pg/ml'">пг/мл</xsl:when>
+   <xsl:when test="$val = 's'">сек</xsl:when>
+   <xsl:when test="$val = 'lb'">фунты</xsl:when>
+   <xsl:when test="$val = 'pg'">пг</xsl:when>
+   <xsl:when test="$val = '1/min'">в мин</xsl:when>
+   <xsl:when test="$val = '1'"></xsl:when>
+   <xsl:otherwise>
+    <xsl:value-of select="$val"/>
+   </xsl:otherwise>
+  </xsl:choose>
+ </xsl:template>
+</xsl:stylesheet>
