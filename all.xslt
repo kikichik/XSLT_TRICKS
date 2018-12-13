@@ -59,7 +59,7 @@
    ><xsl:with-param name="timeString"
     select="$dateString"
    /></xsl:call-template></xsl:variable><xsl:if test="$TimeVar != '00:00:00' and $TimeVar != '' "
-    ><span> </span><xsl:value-of select="$TimeVar"
+    ><xsl:text> </xsl:text><xsl:value-of select="$TimeVar"
     /></xsl:if></xsl:template>
 
 
@@ -97,7 +97,7 @@
   <xsl:param name="v"/>
   <xsl:if test="$pString='a'">
    <xsl:value-of select="($v)"/>
-    <span> </span>
+    <xsl:text> </xsl:text>
 	<xsl:call-template name="f_plural_form">
      <xsl:with-param name="num" select="$v"/>
      <xsl:with-param name="str1">года</xsl:with-param>
@@ -107,7 +107,7 @@
   </xsl:if>
   <xsl:if test="$pString='mo'">
   <xsl:value-of select="($v)"/>
-    <span> </span>
+    <xsl:text> </xsl:text>
     <xsl:call-template name="f_plural_form">
      <xsl:with-param name="num" select="$v"/>
      <xsl:with-param name="str1">месяца</xsl:with-param>
@@ -117,7 +117,7 @@
   </xsl:if>
   <xsl:if test="$pString='wk'">
     <xsl:value-of select="($v)"/>
-    <span> </span>
+    <xsl:text> </xsl:text>
 	<xsl:call-template name="f_plural_form">
      <xsl:with-param name="num" select="$v"/>
      <xsl:with-param name="str1">недели</xsl:with-param>
@@ -127,7 +127,7 @@
   </xsl:if>
   <xsl:if test="$pString='d'">
     <xsl:value-of select="($v)"/>
-    <span> </span>
+    <xsl:text> </xsl:text>
     <xsl:call-template name="f_plural_form">
      <xsl:with-param name="num" select="$v"/>
      <xsl:with-param name="str1">дня</xsl:with-param>
@@ -142,7 +142,7 @@
   <xsl:param name="v"/>
   <xsl:if test="$pString='a'">
    <xsl:value-of select="$v"/>
-    <span> </span><xsl:call-template name="f_plural_form">
+    <xsl:text> </xsl:text><xsl:call-template name="f_plural_form">
     <xsl:with-param name="num" select="$v"/>
     <xsl:with-param name="str1">год</xsl:with-param>
     <xsl:with-param name="str2">года</xsl:with-param>
@@ -151,7 +151,7 @@
   </xsl:if>
   <xsl:if test="$pString='1/a'">
    <xsl:value-of select="$v"/>
-   <span> </span><xsl:call-template name="f_plural_form">
+   <xsl:text> </xsl:text><xsl:call-template name="f_plural_form">
     <xsl:with-param name="num" select="$v"/>
     <xsl:with-param name="str1">раз в год</xsl:with-param>
     <xsl:with-param name="str2">раза в год</xsl:with-param>
@@ -160,7 +160,7 @@
   </xsl:if>
   <xsl:if test="$pString='mo'">
    <xsl:value-of select="$v"/>
-    <span> </span><xsl:call-template name="f_plural_form">
+    <xsl:text> </xsl:text><xsl:call-template name="f_plural_form">
     <xsl:with-param name="num" select="$v"/>
     <xsl:with-param name="str1">месяц</xsl:with-param>
     <xsl:with-param name="str2">месяца</xsl:with-param>
@@ -169,7 +169,7 @@
   </xsl:if>
   <xsl:if test="$pString='1/mo'">
    <xsl:value-of select="$v"/>
-   <span> </span><xsl:call-template name="f_plural_form">
+   <xsl:text> </xsl:text><xsl:call-template name="f_plural_form">
     <xsl:with-param name="num" select="$v"/>
     <xsl:with-param name="str1">раз в месяц</xsl:with-param>
     <xsl:with-param name="str2">раза в месяц</xsl:with-param>
@@ -178,7 +178,7 @@
   </xsl:if>
   <xsl:if test="$pString='wk'">
    <xsl:value-of select="$v"/>
-    <span> </span><xsl:call-template name="f_plural_form">
+    <xsl:text> </xsl:text><xsl:call-template name="f_plural_form">
     <xsl:with-param name="num" select="$v"/>
     <xsl:with-param name="str1">неделя</xsl:with-param>
     <xsl:with-param name="str2">недели</xsl:with-param>
@@ -187,7 +187,7 @@
   </xsl:if>
   <xsl:if test="$pString='1/wk'">
    <xsl:value-of select="$v"/>
-   <span> </span><xsl:call-template name="f_plural_form">
+   <xsl:text> </xsl:text><xsl:call-template name="f_plural_form">
     <xsl:with-param name="num" select="$v"/>
     <xsl:with-param name="str1">раз в неделю</xsl:with-param>
     <xsl:with-param name="str2">раза в неделю</xsl:with-param>
@@ -196,7 +196,7 @@
   </xsl:if>
   <xsl:if test="$pString='d'">
    <xsl:value-of select="$v"/>
-   <span> </span>
+   <xsl:text> </xsl:text>
    <xsl:call-template name="f_plural_form">
     <xsl:with-param name="num" select="$v"/>
     <xsl:with-param name="str1">день</xsl:with-param>
@@ -206,7 +206,7 @@
   </xsl:if> 
   <xsl:if test="$pString='1/d'">
    <xsl:value-of select="$v"/>
-   <span> </span>
+   <xsl:text> </xsl:text>
    <xsl:call-template name="f_plural_form">
     <xsl:with-param name="num" select="$v"/>
     <xsl:with-param name="str1">раз в день</xsl:with-param>
@@ -229,8 +229,9 @@
     <xsl:analyze-string select="$DateString" regex="([0-9]+)Y">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
+	   <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">год</xsl:with-param>
@@ -242,9 +243,9 @@
     <xsl:analyze-string select="$DateString" regex="([0-9]+)M">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">месяц</xsl:with-param>
@@ -256,9 +257,9 @@
     <xsl:analyze-string select="$DateString" regex="([0-9]+)W">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">неделя</xsl:with-param>
@@ -270,9 +271,9 @@
     <xsl:analyze-string select="$DateString" regex="([0-9]+)D">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">день</xsl:with-param>
@@ -286,9 +287,9 @@
     <xsl:analyze-string select="$TimeString" regex="([0-9]+)H">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">час</xsl:with-param>
@@ -300,9 +301,9 @@
     <xsl:analyze-string select="$TimeString" regex="P([\w]*)T([\w]*)([0-9]+)M">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(3))"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">минута</xsl:with-param>
@@ -314,9 +315,9 @@
     <xsl:analyze-string select="$TimeString" regex="([0-9]+)S">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">секунда</xsl:with-param>
@@ -336,8 +337,9 @@
     <xsl:analyze-string select="$DateString" regex="([0-9]+)Y">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
+	   <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">год</xsl:with-param>
@@ -349,9 +351,9 @@
     <xsl:analyze-string select="$DateString" regex="([0-9]+)M">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">месяц</xsl:with-param>
@@ -363,9 +365,9 @@
     <xsl:analyze-string select="$DateString" regex="([0-9]+)W">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">неделя</xsl:with-param>
@@ -378,9 +380,9 @@
     <xsl:analyze-string select="$DateString" regex="([0-9]+)D">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">день</xsl:with-param>
@@ -399,9 +401,9 @@
     <xsl:analyze-string select="$TimeString" regex="([0-9]+)H">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">час</xsl:with-param>
@@ -413,9 +415,9 @@
     <xsl:analyze-string select="$TimeString" regex="P([\w]*)T([\w]*)([0-9]+)M">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(3))"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">минуту</xsl:with-param>
@@ -427,9 +429,9 @@
     <xsl:analyze-string select="$TimeString" regex="([0-9]+)S">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">секунду</xsl:with-param>
@@ -455,8 +457,9 @@
     <xsl:analyze-string select="$DateString" regex="([0-9]+)Y">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
+	   <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">года</xsl:with-param>
@@ -468,9 +471,9 @@
     <xsl:analyze-string select="$DateString" regex="([0-9]+)M">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">месяца</xsl:with-param>
@@ -482,9 +485,9 @@
     <xsl:analyze-string select="$DateString" regex="([0-9]+)W">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">недели</xsl:with-param>
@@ -496,9 +499,9 @@
     <xsl:analyze-string select="$DateString" regex="([0-9]+)D">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">дня</xsl:with-param>
@@ -512,9 +515,9 @@
     <xsl:analyze-string select="$TimeString" regex="([0-9]+)H">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">часа</xsl:with-param>
@@ -526,9 +529,9 @@
     <xsl:analyze-string select="$TimeString" regex="P([\w]*)T([\w]*)([0-9]+)M">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(3))"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">минуты</xsl:with-param>
@@ -540,9 +543,9 @@
     <xsl:analyze-string select="$TimeString" regex="([0-9]+)S">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">секунды</xsl:with-param>
@@ -562,8 +565,9 @@
     <xsl:analyze-string select="$DateString" regex="([0-9]+)Y">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
+	   <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">года</xsl:with-param>
@@ -575,8 +579,9 @@
     <xsl:analyze-string select="$DateString" regex="([0-9]+)M">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
+	   <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">месяца</xsl:with-param>
@@ -588,9 +593,9 @@
     <xsl:analyze-string select="$DateString" regex="([0-9]+)W">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">недели</xsl:with-param>
@@ -603,9 +608,9 @@
     <xsl:analyze-string select="$DateString" regex="([0-9]+)D">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">дня</xsl:with-param>
@@ -624,9 +629,9 @@
     <xsl:analyze-string select="$TimeString" regex="([0-9]+)H">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">часа</xsl:with-param>
@@ -638,9 +643,9 @@
     <xsl:analyze-string select="$TimeString" regex="P([\w]*)T([\w]*)([0-9]+)M">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(3))"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">минуты</xsl:with-param>
@@ -652,9 +657,9 @@
     <xsl:analyze-string select="$TimeString" regex="([0-9]+)S">
      <xsl:matching-substring>
       <xsl:variable name="v" select="number(regex-group(1))"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
-      <span> </span>
+      <xsl:text> </xsl:text>
       <xsl:call-template name="f_plural_form">
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">секунды</xsl:with-param>
@@ -1028,75 +1033,4 @@
 
 
 
- <xsl:template name="edizm">
-  <xsl:param name="val"/>
-  <xsl:choose>
-   <xsl:when test="$val = 'Cel'">°С</xsl:when>
-   <xsl:when test="$val = 'week'">неделя</xsl:when>
-   <xsl:when test="$val = 'hour'">час</xsl:when>
-   <xsl:when test="$val = 'month'">месяц</xsl:when>
-   <xsl:when test="$val = 'year'">год</xsl:when>
-   <xsl:when test="$val = 'day'">день</xsl:when>
-   <xsl:when test="$val = 'second'">секунда</xsl:when>
-   <xsl:when test="$val = 'minute'">минута</xsl:when>
-   <xsl:when test="$val = 'Sv'">Зв</xsl:when>
-   <xsl:when test="$val = 'mg/l'">мг/л</xsl:when>
-   <xsl:when test="$val = '/yr'">/год</xsl:when>
-   <xsl:when test="$val = '10*12/l'">10*12/л</xsl:when>
-   <xsl:when test="$val = 'cm2'">см2</xsl:when>
-   <xsl:when test="$val = 'mm/h'">мм/ч</xsl:when>
-   <xsl:when test="$val = 'Minutes'">минуты</xsl:when>
-   <xsl:when test="$val = '/ml'">/мл</xsl:when>
-   <xsl:when test="$val = '/mo'">/месяц</xsl:when>
-   <xsl:when test="$val = 'mm3'">мм3</xsl:when>
-   <xsl:when test="$val = '/d'">/день</xsl:when>
-   <xsl:when test="$val = 'mg'">мг</xsl:when>
-   <xsl:when test="$val = '10*9/l'">10*9/л</xsl:when>
-   <xsl:when test="$val = 'ml'">мл</xsl:when>
-   <xsl:when test="$val = 'mm'">мм</xsl:when>
-   <xsl:when test="$val = 'mo'">мес</xsl:when>
-   <xsl:when test="$val = 'J/min'">Дж/мин</xsl:when>
-   <xsl:when test="$val = 'ft3'">фут3</xsl:when>
-   <xsl:when test="$val = 'mm[Hg]'">мм.рт.ст.</xsl:when>
-   <xsl:when test="$val = 'dioptre'">дптр</xsl:when>
-   <xsl:when test="$val = 'nanomol/d'">нмоль/день</xsl:when>
-   <xsl:when test="$val = 'in3'">дюйм3</xsl:when>
-   <xsl:when test="$val = 'mSv'">мЗв</xsl:when>
-   <xsl:when test="$val = 'Hz'">Гц</xsl:when>
-   <xsl:when test="$val = 'gm/l'">гм/л</xsl:when>
-   <xsl:when test="$val = 'U/l'">Е/л</xsl:when>
-   <xsl:when test="$val = 'U/ml'">Е/мл</xsl:when>
-   <xsl:when test="$val = '/wk'">/неделю</xsl:when>
-   <xsl:when test="$val = 'fl'">фл</xsl:when>
-   <xsl:when test="$val = 'IU/ml'">МЕ/мл</xsl:when>
-   <xsl:when test="$val = 'm/s'">м/с</xsl:when>
-   <xsl:when test="$val = 'µg'">мкг</xsl:when>
-   <xsl:when test="$val = 'min'">мин</xsl:when>
-   <xsl:when test="$val = 'wk'">недель</xsl:when>
-   <xsl:when test="$val = '/min'">/мин</xsl:when>
-   <xsl:when test="$val = 'U'">Е</xsl:when>
-   <xsl:when test="$val = 'millisec'">мс</xsl:when>
-   <xsl:when test="$val = 'nanogm/ml'">нг/мл</xsl:when>
-   <xsl:when test="$val = 'kg'">кг</xsl:when>
-   <xsl:when test="$val = 'dB'">дБ</xsl:when>
-   <xsl:when test="$val = 'cc'">см3</xsl:when>
-   <xsl:when test="$val = 'a'">лет</xsl:when>
-   <xsl:when test="$val = 'd'">дней</xsl:when>
-   <xsl:when test="$val = 'm2'">м2</xsl:when>
-   <xsl:when test="$val = 'gm'">г</xsl:when>
-   <xsl:when test="$val = 'h'">ч</xsl:when>
-   <xsl:when test="$val = 'cm'">см</xsl:when>
-   <xsl:when test="$val = 'kg/m2'">кг/м2</xsl:when>
-   <xsl:when test="$val = 'm'">м</xsl:when>
-   <xsl:when test="$val = 'mmol/l'">ммоль/л</xsl:when>
-   <xsl:when test="$val = 'pg/ml'">пг/мл</xsl:when>
-   <xsl:when test="$val = 's'">сек</xsl:when>
-   <xsl:when test="$val = 'lb'">фунты</xsl:when>
-   <xsl:when test="$val = 'pg'">пг</xsl:when>
-   <xsl:when test="$val = '1/min'">в мин</xsl:when>
-   <xsl:when test="$val = '1'">ед</xsl:when>
-   <xsl:otherwise>
-    <xsl:value-of select="$val"/>
-   </xsl:otherwise>
-  </xsl:choose>
- </xsl:template>
+ 
