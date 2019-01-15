@@ -936,6 +936,35 @@
   </xsl:if>
  </xsl:template>
 
+<!--
+ Strips leading whitespace characters from 'string' 
+-->
+ <xsl:template name="string-ltrim">
+  <xsl:param name="string"/>
+  <xsl:param name="trim" select="$whitespace"/>
+  <xsl:variable name="unEsc">
+   <xsl:call-template name="FromLow">
+    <xsl:with-param name="string" select="$string"/>
+   </xsl:call-template>
+   <!--<xsl:value-of select="$string"/>-->
+  </xsl:variable>
+  <xsl:if test="string-length($unEsc) &gt; 0">
+   <xsl:choose>
+    <xsl:when test="contains($trim, substring($unEsc, 1, 1))">
+     <xsl:call-template name="string-ltrim">
+      <xsl:with-param name="string" select="substring($unEsc, 2)"/>
+      <xsl:with-param name="trim" select="$trim"/>
+     </xsl:call-template>
+    </xsl:when>
+    <xsl:otherwise>
+     <xsl:call-template name="string-split">
+      <xsl:with-param name="string" select="$unEsc"/>
+     </xsl:call-template>
+    </xsl:otherwise>
+   </xsl:choose>
+  </xsl:if>
+ </xsl:template>
+
  <!--
  Strips leading whitespace characters from 'string' 
 -->
