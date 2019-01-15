@@ -990,9 +990,7 @@
   </xsl:if>
  </xsl:template>
 
- <!--
- Strips leading whitespace characters from 'string' 
--->
+
  <xsl:template name="string-capltrim_br">
 		<xsl:param name="string"/>
 		<xsl:param name="trim" select="$whitespace_br"/>
