@@ -308,9 +308,9 @@
       </xsl:call-template>
      </xsl:matching-substring>
     </xsl:analyze-string>
-    <xsl:analyze-string select="$TimeString" regex="P([\w]*)T([\w]*)([0-9]+)M">
+    <xsl:analyze-string select="$TimeString" regex="([0-9]+)M">
      <xsl:matching-substring>
-      <xsl:variable name="v" select="number(regex-group(3))"/>
+      <xsl:variable name="v" select="number(regex-group(1))"/>
       <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
       <xsl:text> </xsl:text>
@@ -422,9 +422,9 @@
       </xsl:call-template>
      </xsl:matching-substring>
     </xsl:analyze-string>
-    <xsl:analyze-string select="$TimeString" regex="P([\w]*)T([\w]*)([0-9]+)M">
+    <xsl:analyze-string select="$TimeString" regex="([0-9]+)M">
      <xsl:matching-substring>
-      <xsl:variable name="v" select="number(regex-group(3))"/>
+      <xsl:variable name="v" select="number(regex-group(1))"/>
       <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
       <xsl:text> </xsl:text>
@@ -536,9 +536,9 @@
       </xsl:call-template>
      </xsl:matching-substring>
     </xsl:analyze-string>
-    <xsl:analyze-string select="$TimeString" regex="P([\w]*)T([\w]*)([0-9]+)M">
+    <xsl:analyze-string select="$TimeString" regex="([0-9]+)M">
      <xsl:matching-substring>
-      <xsl:variable name="v" select="number(regex-group(3))"/>
+      <xsl:variable name="v" select="number(regex-group(1))"/>
       <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
       <xsl:text> </xsl:text>
@@ -650,9 +650,9 @@
       </xsl:call-template>
      </xsl:matching-substring>
     </xsl:analyze-string>
-    <xsl:analyze-string select="$TimeString" regex="P([\w]*)T([\w]*)([0-9]+)M">
+    <xsl:analyze-string select="$TimeString" regex="([0-9]+)M">
      <xsl:matching-substring>
-      <xsl:variable name="v" select="number(regex-group(3))"/>
+      <xsl:variable name="v" select="number(regex-group(1))"/>
       <xsl:text> </xsl:text>
       <xsl:value-of select="$v"/>
       <xsl:text> </xsl:text>
