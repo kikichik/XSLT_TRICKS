@@ -173,7 +173,7 @@
     <xsl:with-param name="num" select="$v"/>
     <xsl:with-param name="str1">раз в месяц</xsl:with-param>
     <xsl:with-param name="str2">раза в месяц</xsl:with-param>
-    <xsl:with-param name="str5">раз месяц</xsl:with-param>
+    <xsl:with-param name="str5">раз в месяц</xsl:with-param>
    </xsl:call-template>
   </xsl:if>
   <xsl:if test="$pString='wk'">
@@ -260,7 +260,7 @@
        <xsl:with-param name="num" select="$v"/>
        <xsl:with-param name="str1">месяц</xsl:with-param>
        <xsl:with-param name="str2">месяца</xsl:with-param>
-       <xsl:with-param name="str5">месяца</xsl:with-param>
+       <xsl:with-param name="str5">месяцев</xsl:with-param>
       </xsl:call-template>
      </xsl:matching-substring>
     </xsl:analyze-string>
