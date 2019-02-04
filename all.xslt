@@ -983,6 +983,14 @@
       <xsl:with-param name="trim" select="$trim"/>
      </xsl:call-template>
     </xsl:when>
+    <xsl:when test="contains('«', substring($unEsc, 1, 1))">
+      <xsl:value-of select="upper-case(substring($unEsc, 1, 2))"/>
+      <xsl:if test="string-length($unEsc) &gt; 2">
+        <xsl:call-template name="string-split">
+          <xsl:with-param name="string" select="substring($unEsc, 3)"/>
+        </xsl:call-template>
+      </xsl:if>
+    </xsl:when>
     <xsl:otherwise>
      <xsl:value-of select="upper-case(substring($unEsc, 1, 1))"/>
      <xsl:if test="string-length($unEsc) &gt; 1">
@@ -1008,6 +1016,15 @@
        <xsl:with-param name="string" select="substring($string, 2)"/>
        <xsl:with-param name="trim" select="$trim"/>
       </xsl:call-template>
+     </xsl:when>
+     <xsl:when test="contains('«', substring($string, 1, 1))">
+       <xsl:value-of select="substring($string, 1, 1)"/>
+       <xsl:if test="string-length($string) &gt; 1">
+         <xsl:call-template name="string-capltrim_br">
+           <xsl:with-param name="string" select="substring($string, 2)"/>
+           <xsl:with-param name="trim" select="$trim"/>
+         </xsl:call-template>
+       </xsl:if>
      </xsl:when>
      <xsl:otherwise>
       <xsl:variable name="brVar">
