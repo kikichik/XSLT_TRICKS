@@ -1074,6 +1074,76 @@
     </xsl:choose>
    </xsl:if>
  </xsl:template>
+ 
+ <xsl:template name="string-capltrim_nobr">
+  <xsl:param name="string"/>
+  <xsl:param name="trim" select="$whitespace_br"/>
+ 
+   <xsl:if test="string-length($string) &gt; 0">
+    <xsl:choose>
+     <xsl:when test="contains($trim, substring($string, 1, 1))">
+      <xsl:call-template name="string-capltrim_nobr">
+       <xsl:with-param name="string" select="substring($string, 2)"/>
+       <xsl:with-param name="trim" select="$trim"/>
+      </xsl:call-template>
+     </xsl:when>
+     <xsl:when test="contains('«', substring($string, 1, 1))">
+       <xsl:value-of select="substring($string, 1, 1)"/>
+       <xsl:if test="string-length($string) &gt; 1">
+         <xsl:call-template name="string-capltrim_br">
+           <xsl:with-param name="string" select="substring($string, 2)"/>
+           <xsl:with-param name="trim" select="$trim"/>
+         </xsl:call-template>
+       </xsl:if>
+     </xsl:when>
+     <xsl:otherwise>
+      <xsl:variable name="brVar">
+      <xsl:value-of select="upper-case(substring($string, 1, 1))"/>
+      <xsl:if test="string-length($string) &gt; 1">
+       <xsl:call-template name="string-split">
+        <xsl:with-param name="string" select="substring($string, 2)"/>
+       </xsl:call-template>
+      </xsl:if>
+      </xsl:variable>
+      <xsl:for-each select="tokenize($brVar, '&#10;')">
+       <xsl:value-of select="."/>
+       <xsl:if test="position() != last()">
+        <xsl:text> </xsl:text>
+       </xsl:if>
+      </xsl:for-each>
+     </xsl:otherwise>
+    </xsl:choose>
+   </xsl:if>
+ </xsl:template>
+ 
+ <xsl:template name="string-ltrim_nobr">
+  <xsl:param name="string"/>
+  <xsl:param name="trim" select="$whitespace_br"/>
+  
+  <xsl:if test="string-length($string) &gt; 0">
+   <xsl:choose>
+    <xsl:when test="contains($trim, substring($string, 1, 1))">
+     <xsl:call-template name="string-ltrim_nobr">
+      <xsl:with-param name="string" select="substring($string, 2)"/>
+      <xsl:with-param name="trim" select="$trim"/>
+     </xsl:call-template>
+    </xsl:when>
+    <xsl:otherwise>
+     <xsl:variable name="brVar">
+      <xsl:call-template name="string-split">
+       <xsl:with-param name="string" select="$string"/>
+      </xsl:call-template>
+     </xsl:variable>
+     <xsl:for-each select="tokenize($brVar, '&#10;')">
+      <xsl:value-of select="."/>
+      <xsl:if test="position() != last()">
+       <xsl:text> </xsl:text>
+      </xsl:if>
+     </xsl:for-each>
+    </xsl:otherwise>
+   </xsl:choose>
+  </xsl:if>
+ </xsl:template>
 
 <xsl:template name="edizm">
   <xsl:param name="val"/>
