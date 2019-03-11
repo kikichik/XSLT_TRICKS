@@ -1055,19 +1055,20 @@
  <xsl:template name="string-ltrim_br">
   <xsl:param name="string"/>
   <xsl:param name="trim" select="$whitespace_br"/>
-  
-   <xsl:if test="string-length($string) &gt; 0">
+   <xsl:variable name="string2"><xsl:call-template name="FromLow">
+   <xsl:with-param name="string" select="$string"/></xsl:call-template></xsl:variable> 
+   <xsl:if test="string-length($string2) &gt; 0">
     <xsl:choose>
-     <xsl:when test="contains($trim, substring($string, 1, 1))">
+     <xsl:when test="contains($trim, substring($string2, 1, 1))">
       <xsl:call-template name="string-ltrim_br">
-       <xsl:with-param name="string" select="substring($string, 2)"/>
+       <xsl:with-param name="string" select="substring($string2, 2)"/>
        <xsl:with-param name="trim" select="$trim"/>
       </xsl:call-template>
      </xsl:when>
      <xsl:otherwise>
       <xsl:variable name="brVar">
       <xsl:call-template name="string-split">
-       <xsl:with-param name="string" select="$string"/>
+       <xsl:with-param name="string" select="$string2"/>
       </xsl:call-template>
       </xsl:variable>
       <xsl:for-each select="tokenize($brVar, '&#10;')">
