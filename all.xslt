@@ -909,33 +909,32 @@
   </xsl:for-each>
  </xsl:template>
 
- <xsl:template name="FromLow">
+  <xsl:template name="FromLow">
   <xsl:param name="string"/>
   <xsl:variable name="beg">
-   <xsl:value-of select="substring($string, 1, 2)"/>
+   <xsl:value-of select="substring($string[1], 1, 2)"/>
   </xsl:variable>
   <xsl:variable name="edited">
-   <xsl:value-of select="concat(lower-case(substring($string, 1, 1)), substring($string, 2))"/>
+   <xsl:value-of select="concat(lower-case(substring($string[1], 1, 1)), substring($string[1], 2))"/>
   </xsl:variable>
 
-  <xsl:if test="string-length($string) &gt; 0">
+  <xsl:if test="string-length($string[1]) &gt; 0">
    <xsl:choose>
-    <xsl:when test="string(number(substring($string,2,1))) != 'NaN'">
-     <xsl:value-of select="$string"/>
+    <xsl:when test="string(number(substring($string[1],2,1))) != 'NaN'">
+     <xsl:value-of select="$string[1]"/>
     </xsl:when>
-    <xsl:when test="string-length($string) = 1">
-     <xsl:value-of select="$string"/>
+    <xsl:when test="string-length($string[1]) = 1">
+     <xsl:value-of select="$string[1]"/>
     </xsl:when>
     <xsl:when test="lower-case($beg) = substring($edited, 1, 2)">
      <xsl:value-of select="$edited"/>
     </xsl:when>
     <xsl:otherwise>
-     <xsl:value-of select="$string"/>
+     <xsl:value-of select="$string[1]"/>
     </xsl:otherwise>
    </xsl:choose>
   </xsl:if>
  </xsl:template>
-
 
 <!--
  Strips leading whitespace characters from 'string' safe newline
