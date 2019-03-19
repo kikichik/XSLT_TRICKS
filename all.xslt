@@ -149,7 +149,7 @@
     <xsl:with-param name="str5">лет</xsl:with-param>
    </xsl:call-template>
   </xsl:if>
-  <xsl:if test="$pString='1/a' or $pString='1/yr'">
+  <xsl:if test="$pString='1/a' or $pString='1/yr' or $pString='/a' or $pString='/yr'">
    <xsl:value-of select="$v"/>
    <xsl:text> </xsl:text><xsl:call-template name="f_plural_form">
     <xsl:with-param name="num" select="$v"/>
@@ -167,7 +167,7 @@
     <xsl:with-param name="str5">месяцев</xsl:with-param>
    </xsl:call-template>
   </xsl:if>
-  <xsl:if test="$pString='1/mo'">
+  <xsl:if test="$pString='1/mo' or $pString='/mo'">
    <xsl:value-of select="$v"/>
    <xsl:text> </xsl:text><xsl:call-template name="f_plural_form">
     <xsl:with-param name="num" select="$v"/>
@@ -185,7 +185,7 @@
     <xsl:with-param name="str5">недель</xsl:with-param>
    </xsl:call-template>
   </xsl:if>
-  <xsl:if test="$pString='1/wk'">
+  <xsl:if test="$pString='1/wk' or $pString='/wk'">
    <xsl:value-of select="$v"/>
    <xsl:text> </xsl:text><xsl:call-template name="f_plural_form">
     <xsl:with-param name="num" select="$v"/>
@@ -204,7 +204,7 @@
     <xsl:with-param name="str5">дней</xsl:with-param>
    </xsl:call-template>
   </xsl:if> 
-  <xsl:if test="$pString='1/d'">
+  <xsl:if test="$pString='1/d' or $pString='/d'">
    <xsl:value-of select="$v"/>
    <xsl:text> </xsl:text>
    <xsl:call-template name="f_plural_form">
@@ -214,7 +214,7 @@
     <xsl:with-param name="str5">раз в день</xsl:with-param>
    </xsl:call-template>
   </xsl:if> 
-  <xsl:if test="$pString='1/h'">
+  <xsl:if test="$pString='1/h' or $pString='/h'">
   <xsl:value-of select="$v"/>
   <xsl:text> </xsl:text>
   <xsl:call-template name="f_plural_form">
