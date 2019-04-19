@@ -1,7 +1,7 @@
  <!-- ************************************************ procedures ******************************************************************** -->
 
 
-  <xsl:template name="AddressFormat" match="*:Адрес"
+  <xsl:template name="AddressFormat" match="*:Адрес">
     <xsl:variable name="town" select="*:Город_fslash_село/*:value/*:value"/>
     <xsl:variable name="npunkt" select="*:Населенный_пункт/*:value/*:value"/>
     <xsl:if test="$town"> город <xsl:value-of select="$town"/></xsl:if>
