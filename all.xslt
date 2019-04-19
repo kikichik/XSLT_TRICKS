@@ -1,31 +1,31 @@
  <!-- ************************************************ procedures ******************************************************************** -->
 
 
-  <xsl:template name="AddressFormat" match="*:Адрес">
-    <xsl:variable name="town" select="*:Город_fslash_село/*:value/rm:value"/>
-    <xsl:variable name="npunkt" select="*:Населенный_пункт/*:value/rm:value"/>
+  <xsl:template name="AddressFormat" match="*:Адрес"
+    <xsl:variable name="town" select="*:Город_fslash_село/*:value/*:value"/>
+    <xsl:variable name="npunkt" select="*:Населенный_пункт/*:value/*:value"/>
     <xsl:if test="$town"> город <xsl:value-of select="$town"/></xsl:if>
     <xsl:if test="not($town = $npunkt)">, нас.пункт <xsl:value-of select="$npunkt"/></xsl:if>
-    <xsl:if test="*:Район/*:value/rm:value != ''">, район <xsl:value-of
-        select="*:Район/*:value/rm:value"/></xsl:if>
-    <xsl:if test="*:Название_улицы/*:value/rm:value != ''">, ул. <xsl:value-of
-        select="*:Название_улицы/*:value/rm:value"/></xsl:if>
-    <xsl:if test="*:Дом/*:value/rm:value != ''">, дом <xsl:value-of select="*:Дом/*:value/rm:value"
+    <xsl:if test="*:Район/*:value/*:value != ''">, район <xsl:value-of
+        select="*:Район/*:value/*:value"/></xsl:if>
+    <xsl:if test="*:Название_улицы/*:value/*:value != ''">, ул. <xsl:value-of
+        select="*:Название_улицы/*:value/*:value"/></xsl:if>
+    <xsl:if test="*:Дом/*:value/*:value != ''">, дом <xsl:value-of select="*:Дом/*:value/*:value"
       /></xsl:if>
-    <xsl:if test="*:Корпус/*:value/rm:value != ''">, корпус <xsl:value-of
-        select="*:Корпус/*:value/rm:value"/></xsl:if>
-    <xsl:if test="*:Строение/*:value/rm:value != ''">, строение <xsl:value-of
-        select="*:Строение/*:value/rm:value"/></xsl:if>
-    <xsl:if test="*:Квартира/*:value/rm:value != ''">, квартира <xsl:value-of
-        select="*:Квартира/*:value/rm:value"/></xsl:if>
-    <xsl:if test="*:Комната/*:value/rm:value != ''">, комната <xsl:value-of
-        select="*:Комната/*:value/rm:value"/></xsl:if>
-    <xsl:if test="*:Подъезд/*:value/rm:value != ''">, подъезд <xsl:value-of
-        select="*:Подъезд/*:value/rm:value"/></xsl:if>
-    <xsl:if test="*:Код_подъезда/*:value/rm:value != ''">, код подъезда <xsl:value-of
-        select="*:Код_подъезда/*:value/rm:value"/></xsl:if>
-    <xsl:if test="*:Этаж/*:value/rm:value != ''">, этаж <xsl:value-of
-        select="*:Этаж/*:value/rm:value"/></xsl:if>
+    <xsl:if test="*:Корпус/*:value/*:value != ''">, корпус <xsl:value-of
+        select="*:Корпус/*:value/*:value"/></xsl:if>
+    <xsl:if test="*:Строение/*:value/*:value != ''">, строение <xsl:value-of
+        select="*:Строение/*:value/*:value"/></xsl:if>
+    <xsl:if test="*:Квартира/*:value/*:value != ''">, квартира <xsl:value-of
+        select="*:Квартира/*:value/*:value"/></xsl:if>
+    <xsl:if test="*:Комната/*:value/*:value != ''">, комната <xsl:value-of
+        select="*:Комната/*:value/*:value"/></xsl:if>
+    <xsl:if test="*:Подъезд/*:value/*:value != ''">, подъезд <xsl:value-of
+        select="*:Подъезд/*:value/*:value"/></xsl:if>
+    <xsl:if test="*:Код_подъезда/*:value/*:value != ''">, код подъезда <xsl:value-of
+        select="*:Код_подъезда/*:value/*:value"/></xsl:if>
+    <xsl:if test="*:Этаж/*:value/*:value != ''">, этаж <xsl:value-of
+        select="*:Этаж/*:value/*:value"/></xsl:if>
   </xsl:template>
 
   <!-- ******************************************************************************************************************************* -->
