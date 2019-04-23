@@ -882,9 +882,28 @@
     </xsl:for-each>
   </xsl:template>
 
-  <xsl:template name="string-split9">
+ <xsl:template name="string-split9">
     <xsl:param name="string"/>
     <xsl:for-each select="tokenize($string, '\)')">
+      <xsl:choose>
+        <xsl:when test="string-length(.) &lt; $max_str_size">
+          <xsl:value-of select="."/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:call-template name="string-split10">
+            <xsl:with-param name="string" select="."/>
+          </xsl:call-template>
+        </xsl:otherwise>
+      </xsl:choose>
+      <xsl:if test="position() != last()">
+        <xsl:text>) </xsl:text>
+      </xsl:if>
+    </xsl:for-each>
+  </xsl:template>
+  
+  <xsl:template name="string-split10">
+    <xsl:param name="string"/>
+    <xsl:for-each select="tokenize($string, '\n')">
       <xsl:choose>
         <xsl:when test="string-length(.) &lt; $max_str_size">
           <xsl:value-of select="."/>
@@ -896,7 +915,8 @@
         </xsl:otherwise>
       </xsl:choose>
       <xsl:if test="position() != last()">
-        <xsl:text>) </xsl:text>
+<xsl:text>
+</xsl:text>
       </xsl:if>
     </xsl:for-each>
   </xsl:template>
