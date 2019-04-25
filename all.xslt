@@ -1286,6 +1286,7 @@
       <xsl:when test="$val = 'pg'">пг</xsl:when>
       <xsl:when test="$val = '1/min'">в мин</xsl:when>
       <xsl:when test="$val = '1'"/>
+      <xsl:when test="$val = 'micron'">микрон</xsl:when>
       <xsl:otherwise>
         <xsl:value-of select="$val"/>
       </xsl:otherwise>
