@@ -932,7 +932,7 @@
         select="concat(lower-case(substring($string[1], 1, 1)), substring($string[1], 2))"/>
     </xsl:variable>
     <xsl:if test="string-length($string[1]) &gt; 0">
-      <xsl:analyze-string select="substring($string[1], 1, 1)" regex="[A-Z]">
+      <xsl:analyze-string select="substring($string[1], 1, 1)" regex="[A-Z][a-z]">
         <xsl:matching-substring>
           <xsl:value-of select="$string[1]"/>
         </xsl:matching-substring>
