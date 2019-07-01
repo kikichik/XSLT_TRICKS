@@ -37,8 +37,8 @@
                             select="*:Диагноз/*:Основной_диагноз/*:Основной_диагноз/*:data/*:Вид_диагноза/*:Диагностический_статус/*:value/*:value"
                           />
                         </xsl:call-template>
+                      	<xsl:text>. </xsl:text>
                       </strong>
-                      <xsl:text>. </xsl:text>
                     </xsl:if>
                     <xsl:variable name="v7_1">
                       <xsl:if
@@ -113,8 +113,8 @@
                                 select="*:data/*:Вид_диагноза/*:Диагностический_статус/*:value/*:value"
                               />
                             </xsl:call-template>
+                            <xsl:text>. </xsl:text>
                           </xsl:element>
-                          <xsl:text>. </xsl:text>
                         </xsl:if>
                         <xsl:if
                           test="*:data/*:Развернутый_клинический_диагноз/*:value/*:value != ''">
@@ -168,7 +168,8 @@
                                 select="*:data/*:Вид_диагноза/*:Диагностический_статус/*:value/*:value"
                               />
                             </xsl:call-template>
-                          </xsl:element>. 
+			    <xsl:text>. </xsl:text>
+                          </xsl:element>
                         </xsl:if>
                         <xsl:if
                           test="*:data/*:Развернутый_клинический_диагноз/*:value/*:value != ''">
@@ -220,8 +221,8 @@
                                 select="*:data/*:Вид_диагноза/*:Диагностический_статус/*:value/*:value"
                               />
                             </xsl:call-template>
+                            <xsl:text>. </xsl:text>
                           </xsl:element>
-                          <xsl:text>. </xsl:text>
                         </xsl:if>
                         <xsl:if
                           test="*:data/*:Развернутый_клинический_диагноз/*:value/*:value != ''">
