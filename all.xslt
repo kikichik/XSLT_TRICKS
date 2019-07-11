@@ -443,7 +443,7 @@
             <xsl:text> </xsl:text>
             <xsl:call-template name="f_plural_form">
               <xsl:with-param name="num" select="$v"/>
-              <xsl:with-param name="str1">минуту</xsl:with-param>
+              <xsl:with-param name="str1">минута</xsl:with-param>
               <xsl:with-param name="str2">минуты</xsl:with-param>
               <xsl:with-param name="str5">минут</xsl:with-param>
             </xsl:call-template>
@@ -457,7 +457,7 @@
             <xsl:text> </xsl:text>
             <xsl:call-template name="f_plural_form">
               <xsl:with-param name="num" select="$v"/>
-              <xsl:with-param name="str1">секунду</xsl:with-param>
+              <xsl:with-param name="str1">секунда</xsl:with-param>
               <xsl:with-param name="str2">секунды</xsl:with-param>
               <xsl:with-param name="str5">секунд</xsl:with-param>
             </xsl:call-template>
