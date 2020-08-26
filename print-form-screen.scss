@@ -1,0 +1,37 @@
+
+.xslt_jira_ticket_name_s {
+    * {
+    font-family: Open Sans;
+    line-height: 24px;
+    font-size: 15px;
+    color: #333333;
+    }
+
+    .xslt-title {
+    font-weight: bold;
+    color: #333333;
+    text-align: left;
+    }
+
+    .xslt-item {
+    margin: 20px 0;
+    }
+
+    .xslt-subheader {
+    text-align: left;
+    color: #757575;
+    font-weight: normal;
+    }
+    
+    p, 
+    h2,
+    h1 {
+    margin: 0;
+    }
+
+    .xslt-item__content {
+        .xslt-item:first-child {
+        margin-top: 0;
+        } 
+    }
+}
